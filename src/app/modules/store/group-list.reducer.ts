@@ -7,7 +7,6 @@ export const initialGroupListState: GroupListState = {
     groups: []
 }
 
-
 export const groupListReducer = createReducer(
     initialGroupListState,
     on(groupListActions.addGroupList, (state, { quantity, groups }) => {
@@ -28,7 +27,6 @@ export const groupListReducer = createReducer(
       };
     })
   })),
-
   on(groupListActions.toggleItemSelection, (state, { groupId, itemId, selected }) => ({
     ...state,
     groups: state.groups.map(group => {

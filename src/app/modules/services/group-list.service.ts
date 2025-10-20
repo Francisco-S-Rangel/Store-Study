@@ -33,5 +33,4 @@ export class GroupListService {
             groupListActions.toggleItemSelection({ groupId: group.groupId, itemId, selected })
         );
     }
-
 }
