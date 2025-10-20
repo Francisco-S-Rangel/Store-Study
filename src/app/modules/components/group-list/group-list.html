@@ -1,0 +1,5 @@
+<section>
+        <app-group
+            [groups]="(groupList$ | async )?.groups || []" 
+        ></app-group>
+</section>

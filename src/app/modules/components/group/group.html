@@ -1,0 +1,16 @@
+@for(group of groups; track group) {
+    <div class="group-name">
+        <mat-checkbox
+            [checked]="getCheckboxState(group).checked"
+            [indeterminate]="getCheckboxState(group).inderterminate"
+            (change)="selectAllItems(group, $event.checked)"
+        >
+            {{ group.name }}
+        </mat-checkbox>
+    </div>
+    <app-item-list
+        [items]="group.items"
+        (selectionChange)="onItemSelectionChange(group, $event.itemId, $event.selected)"
+    >
+    </app-item-list>
+}

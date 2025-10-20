@@ -1,0 +1,10 @@
+@for(item of items; track item) {
+    <div class="item-name">
+        <mat-checkbox
+            [checked]="item.selected"
+            (change)="updateItemList(item, $event.checked)"
+        >
+            {{item.name}}
+        </mat-checkbox>
+    </div>
+}

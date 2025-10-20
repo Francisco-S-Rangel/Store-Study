@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { GroupListService } from './modules/services/group-list.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,12 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected title = 'study-project';
+export class App implements OnInit {
+
+  constructor(private groupListService: GroupListService) {
+  }
+
+  ngOnInit() {
+    this.groupListService.addGroupListState();
+  }
 }
