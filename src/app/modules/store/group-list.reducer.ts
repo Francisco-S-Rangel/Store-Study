@@ -38,7 +38,6 @@ export const groupListReducer = createReducer(
 
       // Calcula novo estado do grupo com base nos itens
       const allSelected = updatedItems.every(item => item.selected);
-      const anySelected = updatedItems.some(item => item.selected);
 
       return {
         ...group,
