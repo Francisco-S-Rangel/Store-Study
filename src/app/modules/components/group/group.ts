@@ -3,7 +3,7 @@ import { GroupState } from '../../interfaces/group-list.interface';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ItemList } from '../item-list/item-list';
 import { GroupListService } from '../../services/group-list.service';
-import { GroupListFacade } from '../../services/group-list.facade';
+import { GroupListFacade } from '../../store/group-list.facade';
 
 @Component({
   selector: 'app-group',
