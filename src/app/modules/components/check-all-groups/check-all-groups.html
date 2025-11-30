@@ -1,0 +1,9 @@
+
+<div class="check-all-groups">
+    <mat-checkbox
+        [checked]="_isCheked$ | ngrxPush"
+        (change)="onChangeValue($event.checked)"
+    >
+        {{ 'SELECT ALL' }}
+    </mat-checkbox>
+</div>

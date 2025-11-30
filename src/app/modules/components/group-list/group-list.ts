@@ -5,10 +5,11 @@ import { GroupListState } from '../../interfaces/group-list.interface';
 import { Group } from '../group/group';
 import { AsyncPipe } from '@angular/common';
 import { GroupListFacade } from '../../store/group-list.facade';
+import { CheckAllGroups } from '../check-all-groups/check-all-groups';
 
 @Component({
   selector: 'app-group-list',
-  imports: [Group, AsyncPipe],
+  imports: [Group, AsyncPipe, CheckAllGroups],
   templateUrl: './group-list.html',
   styleUrl: './group-list.css'
 })

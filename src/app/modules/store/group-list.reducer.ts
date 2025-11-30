@@ -36,15 +36,27 @@ export const groupListReducer = createReducer(
         item.itemId === itemId ? { ...item, selected } : item
       );
 
-      // Calcula novo estado do grupo com base nos itens
+      // Calculates the new group status based on the items
       const allSelected = updatedItems.every(item => item.selected);
 
       return {
         ...group,
         selected: allSelected,
-        // você pode guardar um flag "indeterminate" no componente ao invés do estado
+        // You can store an “indeterminate” flag in the component instead of the state
         items: updatedItems
       };
     })
-  }))
+  })),
+  on(groupListActions.addAllGroups, (state) => {
+
+    state.groups.forEach((group) => {
+      group.selected = true;
+      group.items.forEach((item) => {
+        item.selected = true;
+      })
+    });
+
+    return state;
+  }),
+  on(groupListActions.resetAllState, () => initialGroupListState)
 )

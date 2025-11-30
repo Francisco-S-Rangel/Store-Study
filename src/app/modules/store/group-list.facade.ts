@@ -36,4 +36,12 @@ export class GroupListFacade {
             groupListActions.toggleItemSelection({ groupId: group.groupId, itemId, selected })
         )
     }
+
+    addAllGroups(): void {
+        this.store.dispatch(groupListActions.addAllGroups())
+    }
+
+    resetAllState(): void {
+        this.store.dispatch(groupListActions.resetAllState());
+    }
 }

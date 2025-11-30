@@ -1,0 +1,7 @@
+.check-all-groups {
+    padding: 16px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(136, 138, 141);
+}
