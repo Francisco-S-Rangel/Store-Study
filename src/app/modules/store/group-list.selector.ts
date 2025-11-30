@@ -1,4 +1,4 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { createFeatureSelector, createSelector, State } from "@ngrx/store";
 import { GroupListState } from "../interfaces/group-list.interface";
 
 export const groupListKey = 'groupListReducer';
@@ -14,3 +14,8 @@ export const selectItemsByGroup = createSelector(
     selectGroupListFeature,
     (state) => state.groups.map(group => ({ groupId: group.groupId, items: group.items }))
 );
+
+export const isAllGroupsSelected = createSelector(
+    selectGroupListFeature,
+    (state) => state.groups.every((group) => !!group.selected)
+)

@@ -49,14 +49,34 @@ export const groupListReducer = createReducer(
   })),
   on(groupListActions.addAllGroups, (state) => {
 
-    state.groups.forEach((group) => {
-      group.selected = true;
-      group.items.forEach((item) => {
-        item.selected = true;
-      })
-    });
+    const newGroups = state.groups.map((group) => ({
+      ...group,
+      selected: true,
+      items: group.items.map((item) => ({
+        ...item,
+        selected: true
+      }))
+    }));
 
-    return state;
+    return {
+      ...state,
+      groups: newGroups
+    } 
   }),
-  on(groupListActions.resetAllState, () => initialGroupListState)
+  on(groupListActions.clearAllGroups, (state) => {
+
+    const newGroups = state.groups.map((group) => ({
+      ...group,
+      selected: false,
+      items: group.items.map((item) => ({
+        ...item,
+        selected: false
+      }))
+    }));
+
+    return {
+      ...state,
+      groups: newGroups
+    }
+  })
 )

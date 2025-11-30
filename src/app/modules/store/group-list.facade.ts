@@ -14,11 +14,13 @@ export class GroupListFacade {
     readonly groupList$: Observable<GroupListState>;
     readonly groups$: Observable<GroupState[]>;
     readonly itemsByGroup$: Observable<{ groupId: number, items: ItemState[]}[]>;
+    readonly isAllGroupsChecked$: Observable<boolean>;
 
     constructor(private store: Store<{ groupListReducer: GroupListState }>) {
         this.groupList$ = this.store.select(groupListSelector.selectGroupListFeature);
         this.groups$ = this.store.select(groupListSelector.selectGroups);
         this.itemsByGroup$ = this.store.select(groupListSelector.selectItemsByGroup);
+        this.isAllGroupsChecked$ = this.store.select(groupListSelector.isAllGroupsSelected);
     }
 
     addGroupListState(): void {
@@ -41,7 +43,7 @@ export class GroupListFacade {
         this.store.dispatch(groupListActions.addAllGroups())
     }
 
-    resetAllState(): void {
-        this.store.dispatch(groupListActions.resetAllState());
+    clearAllGroups(): void {
+        this.store.dispatch(groupListActions.clearAllGroups());
     }
 }

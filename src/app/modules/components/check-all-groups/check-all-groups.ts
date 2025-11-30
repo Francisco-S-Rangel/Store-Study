@@ -13,18 +13,22 @@ import { PushPipe } from '@ngrx/component';
 })
 export class CheckAllGroups {
 
-  readonly _isCheked$: Observable<boolean> = of(false);
+  isAllGroupsCheked$!: Observable<boolean>;
 
   constructor(
     private groupListService: GroupListService,
-    private grouplistFacade: GroupListFacade
+    private groupListFacade: GroupListFacade
   ) {}
+
+  ngOnInit(): void {
+    this.isAllGroupsCheked$ = this.groupListFacade.isAllGroupsChecked$;
+  }
 
   onChangeValue(checked: boolean) {
     if(checked) {
-      this.grouplistFacade.addAllGroups();
+      this.groupListFacade.addAllGroups();
     } else {
-      this.grouplistFacade.resetAllState();
+      this.groupListFacade.clearAllGroups();
     }
   }
 }
