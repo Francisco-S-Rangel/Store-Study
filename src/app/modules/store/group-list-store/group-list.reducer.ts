@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { GroupListState } from "../interfaces/group-list.interface";
+import { GroupListState } from "../../interfaces/group-list.interface";
 import { groupListActions } from "./group-list.actions";
 
 export const initialGroupListState: GroupListState = {
@@ -16,14 +16,15 @@ export const groupListReducer = createReducer(
             groups
         };
     }),
-    on(groupListActions.toggleGroupSelection, (state, { groupId, selected }) => ({
+    on(groupListActions.toggleGroupSelection, (state, { group, selected }) => (
+    {
     ...state,
-    groups: state.groups.map(group => {
-      if (group.groupId !== groupId) return group;
+    groups: state.groups.map(groupState => {
+      if (groupState.groupId !== group.groupId) return groupState;
       return {
-        ...group,
+        ...groupState,
         selected,
-        items: group.items.map(item => ({ ...item, selected }))
+        items: groupState.items.map(item => ({ ...item, selected }))
       };
     })
   })),
@@ -48,7 +49,6 @@ export const groupListReducer = createReducer(
     })
   })),
   on(groupListActions.addAllGroups, (state) => {
-
     const newGroups = state.groups.map((group) => ({
       ...group,
       selected: true,

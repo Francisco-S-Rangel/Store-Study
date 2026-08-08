@@ -8,7 +8,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "src/app/modules/store/group-list-store"  ],
   "exclude": [
     "src/**/*.spec.ts"
   ]

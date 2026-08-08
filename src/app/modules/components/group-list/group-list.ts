@@ -4,7 +4,7 @@ import { GroupListService } from '../../services/group-list.service';
 import { GroupListState } from '../../interfaces/group-list.interface';
 import { Group } from '../group/group';
 import { AsyncPipe } from '@angular/common';
-import { GroupListFacade } from '../../store/group-list.facade';
+import { GroupListFacade } from '../../store/group-list-store/group-list.facade';
 import { CheckAllGroups } from '../check-all-groups/check-all-groups';
 
 @Component({

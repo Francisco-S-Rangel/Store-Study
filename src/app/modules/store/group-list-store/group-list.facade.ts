@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
-import { GroupListState, GroupState, ItemState } from "../interfaces/group-list.interface";
-import * as groupListSelector from './../store/group-list.selector';
+import { GroupListState, GroupState, ItemState } from "../../interfaces/group-list.interface";
+import * as groupListSelector from './group-list.selector';
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { groupListActions } from "../store/group-list.actions";
-import { GROUP_LIST } from "../const/group-list.const";
+import { GROUP_LIST } from "../../const/group-list.const";
+import { groupListActions } from "./group-list.actions";
 
 @Injectable({
     providedIn: 'root'
@@ -29,7 +29,7 @@ export class GroupListFacade {
 
     toggleGroupSelector(group: GroupState, selected: boolean): void {
         this.store.dispatch(
-            groupListActions.toggleGroupSelection({ groupId: group.groupId, selected })
+            groupListActions.toggleGroupSelection({ group, selected })
         );
     }
 

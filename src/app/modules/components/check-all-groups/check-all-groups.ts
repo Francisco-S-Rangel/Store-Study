@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { GroupListService } from '../../services/group-list.service';
-import { GroupListFacade } from '../../store/group-list.facade';
+import { GroupListFacade } from '../../store/group-list-store/group-list.facade';
 import { Observable, of } from 'rxjs';
 import { PushPipe } from '@ngrx/component';
 

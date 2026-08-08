@@ -1,6 +1,6 @@
 import { GROUP_LIST } from './../const/group-list.const';
-import { groupListActions } from './../store/group-list.actions';
-import * as fromGroupList from './../store/group-list.selector';
+import { groupListActions } from '../store/group-list-store/group-list.actions';
+import * as fromGroupList from '../store/group-list-store/group-list.selector';
 import { Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -24,7 +24,7 @@ export class GroupListService {
 
     toggleGroupSelector(group: GroupState, selected: boolean): void {
         this.store.dispatch(
-            groupListActions.toggleGroupSelection({ groupId: group.groupId, selected })
+            groupListActions.toggleGroupSelection({ group , selected })
         );
     }
 
