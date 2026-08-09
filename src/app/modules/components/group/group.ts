@@ -36,5 +36,4 @@ export class Group {
       inderterminate: group.items.some((item) => item.selected) && !group.items.every((item) => item.selected)
     };
   }
-
 }

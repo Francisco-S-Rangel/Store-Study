@@ -1,6 +1,9 @@
-<section>
+<section class="container">
         <app-check-all-groups></app-check-all-groups>
         <app-group
             [groups]="(groupList$ | async )?.groups || []" 
         ></app-group>
+        <div class="container__button-todo-list">
+            <button matButton="filled" (click)="goToTodoList()">Go to TODO LIST</button>
+        </div>
 </section>

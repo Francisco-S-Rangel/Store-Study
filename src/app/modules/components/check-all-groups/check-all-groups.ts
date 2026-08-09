@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { GroupListService } from '../../services/group-list.service';
 import { GroupListFacade } from '../../store/group-list-store/group-list.facade';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { PushPipe } from '@ngrx/component';
 
 @Component({
@@ -12,8 +12,7 @@ import { PushPipe } from '@ngrx/component';
   styleUrl: './check-all-groups.css'
 })
 export class CheckAllGroups {
-
-  isAllGroupsCheked$!: Observable<boolean>;
+  protected isAllGroupsCheked$!: Observable<boolean>;
 
   constructor(
     private groupListService: GroupListService,

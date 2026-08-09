@@ -7,6 +7,7 @@
             NGRX SIGNAL STORE TRAINING
         </h3>
     </header>
+
     <main class="container__body">
         @if (store.loading()) {
             <div class="container__loading">
@@ -16,4 +17,8 @@
             <app-todo-list-display></app-todo-list-display>
         }
     </main>
+
+    <div class="container__button-group-list">
+        <button matButton="filled" (click)="goToGroupList()">Go to GROUP LIST</button>
+    </div>
 </div>
