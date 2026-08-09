@@ -1,4 +1,4 @@
-import { GROUP_LIST } from './../const/group-list.const';
+import { GROUP_LIST } from '../models/group-list.model';
 import { groupListActions } from '../store/group-list-store/group-list.actions';
 import * as fromGroupList from '../store/group-list-store/group-list.selector';
 import { Injectable } from "@angular/core";

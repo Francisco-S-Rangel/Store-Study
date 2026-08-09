@@ -3,7 +3,7 @@ import { GroupListState, GroupState, ItemState } from "../../interfaces/group-li
 import * as groupListSelector from './group-list.selector';
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { GROUP_LIST } from "../../const/group-list.const";
+import { GROUP_LIST } from "../../models/group-list.model";
 import { groupListActions } from "./group-list.actions";
 
 @Injectable({
