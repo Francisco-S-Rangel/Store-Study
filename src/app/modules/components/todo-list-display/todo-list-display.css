@@ -1,0 +1,52 @@
+.todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.todo__title {
+    font-weight: 600;
+    color: #757575;
+}
+
+.todo__input {
+    width: 80%;
+    max-width: 500px;
+}
+
+.todo__filter {
+    align-self: center;
+}
+
+.todo__list {
+    width: 80%;
+    max-width: 500px;
+}
+
+.todo__item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: 100%;
+}
+
+.todo__empty {
+    margin-top: 1.5rem;
+    color: #c62828;
+    font-weight: 600;
+}
+
+.todo__text {
+    flex: 1;
+}
+
+.todo__delete-icon {
+    color: #e53935;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.todo__delete-icon:hover {
+    color: #c62828;
+}

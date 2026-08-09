@@ -1,0 +1,40 @@
+<div class="todo">
+    <h4 class="todo__title">All Todo Registry</h4>
+    <mat-form-field class="todo__input">
+        <mat-label>
+            Enter a Todo and press Enter
+        </mat-label>
+        <input matInput #input (keyup.enter)="onAddTodo(input)">
+
+        <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+
+    <mat-button-toggle-group class="todo__filter"
+        #filter
+        [value]="store.filter()"
+        (change)="onFilterTodo($event)"
+    >
+        <mat-button-toggle value="all">All</mat-button-toggle>
+        <mat-button-toggle value="pending">Pending</mat-button-toggle>
+        <mat-button-toggle value="completed">Completed</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <mat-selection-list class="todo__list" (selectionChange)="onTodoToggled($event)">
+        @for (todo of store.filteredTodos(); track todo.id) {
+            <mat-list-option
+                [value]="todo.id"
+                [selected]="todo.completed"
+            >
+                <div class="todo__item">
+                    <mat-icon class="todo__delete-icon" (click)="onDeleteTodo(todo.id, $event)">delete</mat-icon>
+                    <span 
+                        class="todo__text"
+                        [ngStyle]="{'text-decoration': todo.completed ? 'line-through' : 'none'}"
+                    > {{ todo.title }} </span>
+                </div>
+            </mat-list-option>
+        } @empty {
+            <h3 class="todo__empty">No todo available in {{store.filter()}}!</h3>
+        }
+    </mat-selection-list>
+</div>
